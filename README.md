@@ -18,3 +18,7 @@ bash script to manually add GPS points to your Dawarich database via command lin
 ## Usage
 
 right-click any location in Google Maps, copy the coordinates, and paste them directly into the script
+
+## Note
+
+change timezone in the script if needed + you might have to edit or remove `- INTERVAL '1 hour'`

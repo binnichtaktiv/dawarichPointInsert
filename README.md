@@ -14,3 +14,7 @@ bash script to manually add GPS points to your Dawarich database via command lin
 - running Dawarich Docker setup
 - postgreSQL container named `dawarich_db`
 - bash shell
+
+## Usage
+
+right-click any location in Google Maps, copy the coordinates, and paste them directly into the script

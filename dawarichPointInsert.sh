@@ -30,6 +30,11 @@ case $mode in
         ;;
 esac
 
+if [ "$mode_name" != "single" ]; then
+    read -p "interval in seconds: " interval
+fi
+
+
 insert_point() {
     local lat=$1
     local lon=$2
@@ -103,10 +108,8 @@ else
     base_timestamp=$(docker exec -i dawarich_db psql -U postgres -d dawarich_development -t -c "SELECT EXTRACT(EPOCH FROM (TO_TIMESTAMP('$datetime', 'DD.MM.YYYY HH24:MI:SS') - INTERVAL '1 hour'))::INTEGER;" | xargs)
     
     if [ "$mode_name" = "before" ]; then
-        interval=-30
         echo -e "${YELLOW}mode: adding points BEFORE $datetime (going backwards in time)${NC}"
     else
-        interval=30
         echo -e "${YELLOW}mode: adding points AFTER $datetime (going forwards in time)${NC}"
     fi
     
